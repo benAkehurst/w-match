@@ -10,6 +10,7 @@ var app = express();
 var router = express.Router();
 
 var User = require('./serverModels/user');
+var Vendor = require('./serverModels/vendor');
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
@@ -48,6 +49,33 @@ app.post('/signup', function (req, res, next) {
         }
         res.status(201).json({
             message: 'User created',
+            obj: result
+        });
+    });
+});
+
+app.post('/signupvendor', function (req, res, next) {
+    var vendor = new Vendor({
+        fullName: req.body.userName,
+        email: req.body.email,
+        password: bcrypt.hashSync(req.body.password, 10),
+        companyName: req.body.companyName,
+        companyField: req.body.companyField,
+        companyPhone: req.body.companyPhone,
+        companyEmail: req.body.companyEmail,
+        companyWebsite: req.body.companyWebsite,
+        companyFacebook: req.body.companyFacebook,
+        companyInstagram: req.body.companyInstagram
+    });
+    vendor.save(function (err, result) {
+        if (err) {
+            return res.status(500).json({
+                title: 'An error occurred',
+                error: err
+            });
+        }
+        res.status(201).json({
+            message: 'Vendor created',
             obj: result
         });
     });
