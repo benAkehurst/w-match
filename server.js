@@ -34,16 +34,18 @@ mongoose.connect("mongodb://localhost:27017/weddingMatchDB", function (err) {
 
 
 // Routes
+
+// Register
 app.post('/signup', function (req, res, next) {
     var user = new User({
-        name: req.body.userName,
+        name: req.body.fullName,
         email: req.body.email,
-        password: bcrypt.hashSync(req.body.password, 10),
+        password: bcrypt.hashSync(req.body.password, 10)
     });
     user.save(function (err, result) {
         if (err) {
             return res.status(500).json({
-                title: 'An error occurred',
+                title: 'An error occurred with sign up',
                 error: err
             });
         }
@@ -56,7 +58,7 @@ app.post('/signup', function (req, res, next) {
 
 app.post('/signupvendor', function (req, res, next) {
     var vendor = new Vendor({
-        fullName: req.body.userName,
+        name: req.body.name,
         email: req.body.email,
         password: bcrypt.hashSync(req.body.password, 10),
         companyName: req.body.companyName,
@@ -65,7 +67,10 @@ app.post('/signupvendor', function (req, res, next) {
         companyEmail: req.body.companyEmail,
         companyWebsite: req.body.companyWebsite,
         companyFacebook: req.body.companyFacebook,
-        companyInstagram: req.body.companyInstagram
+        companyInstagram: req.body.companyInstagram,
+        companyLogo: "",
+        vendorImage: ""
+
     });
     vendor.save(function (err, result) {
         if (err) {
@@ -81,6 +86,7 @@ app.post('/signupvendor', function (req, res, next) {
     });
 });
 
+// Login
 app.post('/login', function (req, res, next) {
     User.findOne({ email: req.body.email }, function (err, user) {
         if (err) {
@@ -109,6 +115,39 @@ app.post('/login', function (req, res, next) {
         });
     });
 });
+
+app.post('/vendorlogin', function (req, res, next) {
+    Vendor.findOne({ email: req.body.email }, function (err, vendor) {
+        if (err) {
+            return res.status(500).json({
+                title: 'An error occurred',
+                error: err
+            });
+        }
+        if (!vendor) {
+            return res.status(401).json({
+                title: 'Login failed',
+                error: { message: 'Invalid login credentials' }
+            });
+        }
+        if (!bcrypt.compareSync(req.body.password, vendor.password)) {
+            return res.status(401).json({
+                title: 'Login failed',
+                error: { message: 'Invalid login credentials' }
+            });
+        }
+        var token = jwt.sign({ vendor: vendor }, 'secret', { expiresIn: 7200 });
+        res.status(200).json({
+            message: 'Successfully logged in',
+            token: token,
+            userId: vendor._id
+        });
+    });
+});
+
+//Profile Edit
+
+
 
 
 app.listen(4200,function(){

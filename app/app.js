@@ -43,7 +43,18 @@
             })
             .when("/vendors", {
                 controller: "VendorController",
-                templateUrl: "app/vendorModule/vendorView.html"
+                templateUrl: "app/vendorModule/vendorView.html",
+                resolve: {
+                    app: function ($q, $location) {
+                        var defer = $q.defer();
+                        var loginToken = localStorage.getItem('token');
+                        if (!loginToken) {
+                            $location.path('/vendorlogin');
+                        };
+                        defer.resolve();
+                        return defer.promise;
+                    }
+                }
             })
             .when("/profile", {
                 controller: "ProfileController",

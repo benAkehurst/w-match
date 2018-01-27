@@ -11,12 +11,15 @@ var Schema = mongoose.Schema,
     ObjectId = Schema.ObjectId;
 
 var User = new Schema({
-    name: { type: String, required: true },
+    name: { type: String },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     vendors: [{ type: Schema.Types.ObjectId, ref: 'Vendors' }],
     recommended: [{ type: Schema.Types.ObjectId, ref: 'Recommended' }],
-    friends: [{ type: Schema.Types.ObjectId, ref: 'Friends' }]
+    friends: [{ type: Schema.Types.ObjectId, ref: 'Friends' }],
+    weddingDate: { type: String },
+    weddingLocation: { type: String },
+    userImage: { type: String }
 });
 
 

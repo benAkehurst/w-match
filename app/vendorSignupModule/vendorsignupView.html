@@ -6,81 +6,121 @@
         <div class="form-group">
             <label for="fullName" class="col-sm-3 control-label">Full Name</label>
             <div class="col-sm-9">
-                <input type="text" id="fullName" placeholder="Full Name*" class="form-control" autofocus required>
+                <input type="text" 
+                       id="fullName" 
+                       placeholder="Full Name*" 
+                       class="form-control" 
+                       autofocus 
+                       required 
+                       ng-model="name">
                 <!-- <span class="help-block">Enter your full name</span> -->
             </div>
         </div>
         <div class="form-group">
             <label for="email" class="col-sm-3 control-label">Email</label>
             <div class="col-sm-9">
-                <input type="email" id="email" placeholder="Email*" class="form-control" required>
+                <input type="email" 
+                       id="email" 
+                       placeholder="Email*" 
+                       class="form-control" 
+                       required
+                       ng-model="email">
             </div>
         </div>
         <div class="form-group">
             <label for="password" class="col-sm-3 control-label">Password</label>
             <div class="col-sm-9">
-                <input type="password" id="password" placeholder="Password*" class="form-control" required>
+                <input type="password" 
+                       id="password" 
+                       placeholder="Password*" 
+                       class="form-control" 
+                       required
+                       ng-model="pass1">
             </div>
         </div>
         <div class="form-group">
             <label for="confirm-password" class="col-sm-3 control-label">Confirm Password</label>
             <div class="col-sm-9">
-                <input type="password" id="confirm-password" placeholder="Confirm Password*" class="form-control" required>
+                <input type="password" 
+                       id="confirm-password" 
+                       placeholder="Confirm Password*" 
+                       class="form-control" 
+                       required
+                       ng-model="pass2">
             </div>
         </div>
         <div class="form-group">
             <label for="companyName" class="col-sm-3 control-label">Company Name</label>
             <div class="col-sm-9">
-                <input type="text" id="companyName" placeholder="Company Name*" class="form-control" autofocus required>
+                <input type="text" 
+                       id="companyName" 
+                       placeholder="Company Name*" 
+                       class="form-control" 
+                       autofocus 
+                       required
+                       ng-model="companyName">
                 <!-- <span class="help-block">Enter your full name</span> -->
             </div>
         </div>
         <div class="form-group">
             <label for="companyField" class="col-sm-3 control-label">Company Field</label>
             <div class="col-sm-9">
-                <input type="text" id="companyField" placeholder="Company Field*" class="form-control" autofocus required>
+                <input type="text" 
+                       id="companyField" 
+                       placeholder="Company Field*" 
+                       class="form-control" 
+                       autofocus 
+                       required
+                       ng-model="companyField">
                 <!-- <span class="help-block">Enter your full name</span> -->
             </div>
         </div>
         <div class="form-group">
             <label for="companyPhone" class="col-sm-3 control-label">Company Phone</label>
             <div class="col-sm-9">
-                <input type="text" id="companyPhone" placeholder="Company Phone*" class="form-control" autofocus required>
+                <input type="text" ng-model="companyPhone" id="companyPhone" placeholder="Company Phone*" class="form-control" autofocus required>
                 <!-- <span class="help-block">Enter your full name</span> -->
             </div>
         </div>
         <div class="form-group">
             <label for="companyAddress" class="col-sm-3 control-label">Company Address</label>
             <div class="col-sm-9">
-                <input type="text" id="companyAddress" placeholder="Company Address" class="form-control" autofocus>
+                <input type="text" ng-model="companyAddress" id="companyAddress" placeholder="Company Address" class="form-control" autofocus>
                 <!-- <span class="help-block">Enter your full name</span> -->
             </div>
         </div>
         <div class="form-group">
             <label for="companyEmail" class="col-sm-3 control-label">Company Email</label>
             <div class="col-sm-9">
-                <input type="text" id="companyEmail" placeholder="Company Email" class="form-control" autofocus>
+                <input type="text" ng-model="companyEmail" id="companyEmail" placeholder="Company Email" class="form-control" autofocus>
                 <span class="help-block">Leave blank if same as email</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="companyAddress" class="col-sm-3 control-label">Company Address</label>
+            <div class="col-sm-9">
+                <input type="text" ng-model="companyAddress" id="companyAddress" placeholder="Company Address" class="form-control" autofocus>
+                <!-- <span class="help-block">Enter your full name</span> -->
             </div>
         </div>
         <div class="form-group">
             <label for="companyWebsite" class="col-sm-3 control-label">Company Website</label>
             <div class="col-sm-9">
-                <input type="text" id="companyWebsite" placeholder="Company Website" class="form-control" autofocus>
+                <input type="text" ng-model="companyWebsite" id="companyWebsite" placeholder="Company Website" class="form-control" autofocus>
                 <!-- <span class="help-block">Enter your full name</span> -->
             </div>
         </div>
         <div class="form-group">
             <label for="companyFacebook" class="col-sm-3 control-label">Company Facebook</label>
             <div class="col-sm-9">
-                <input type="text" id="companyFacebook" placeholder="Company Facebook" class="form-control" autofocus>
+                <input type="text" ng-model="companyFacebook" id="companyFacebook" placeholder="Company Facebook" class="form-control" autofocus>
                 <!-- <span class="help-block">Enter your full name</span> -->
             </div>
         </div>
         <div class="form-group">
             <label for="companyInstagram" class="col-sm-3 control-label">Company Instagram</label>
             <div class="col-sm-9">
-                <input type="text" id="companyInstagram" placeholder="Company Instagram" class="form-control" autofocus>
+                <input type="text" ng-model="companyInstagram" id="companyInstagram" placeholder="Company Instagram" class="form-control" autofocus>
                 <!-- <span class="help-block">Enter your full name</span> -->
             </div>
         </div>
@@ -97,7 +137,7 @@
         <!-- /.form-group -->
         <div class="form-group">
             <div class="col-sm-9 col-sm-offset-3">
-                <button type="submit" class="btn btn-primary btn-block">Register</button>
+                <button type="submit" class="btn btn-primary btn-block" ng-click="registerVendor()">Register</button>
             </div>
         </div>
     </form>

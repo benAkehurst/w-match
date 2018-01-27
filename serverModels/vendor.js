@@ -11,7 +11,7 @@ var Schema = mongoose.Schema,
     ObjectId = Schema.ObjectId;
 
 var Vendor = new Schema({
-    fullName: { type: String, required: true },
+    name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     companyName: { type: String, required: true },
@@ -21,6 +21,9 @@ var Vendor = new Schema({
     companyWebsite: { type: String },
     companyFacebook: { type: String },
     companyInstagram: { type: String },
+    companyAddress: { type: String },
+    companyLogo: { type: String },
+    vendorImage: { type: String }
 });
 
 
